@@ -1,5 +1,5 @@
 class DeepseekHarness < Formula
-  desc "DeepSeek Harness: Everything is a Plugin."
+  desc "Open-source agent harness developed by DeepSeek AI"
   homepage "https://github.com/deepseek-ai/deepseek-harness"
   url "https://registry.npmjs.org/@deepseek-ai/dsh/-/dsh-0.1.0-rc.6.tgz"
   sha256 "1b8a9a0ad3c7feaece47926e0bd37ca151c7ccfa997953afa5fd01261784eadc"
