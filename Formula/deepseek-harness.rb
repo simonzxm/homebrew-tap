@@ -19,7 +19,7 @@ class DeepseekHarness < Formula
     target = "#{os}-#{arch}"
 
     prebuilds.each_child do |dir|
-      rm_r dir unless dir.basename.to_s == target
+      rm_r dir if dir.basename.to_s != target
     end
 
     bin.install_symlink libexec.glob("bin/*")
