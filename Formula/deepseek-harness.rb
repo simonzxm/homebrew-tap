@@ -9,6 +9,19 @@ class DeepseekHarness < Formula
 
   def install
     system "npm", "install", *std_npm_args
+
+    # Remove node-pty prebuilds for other platforms and architectures
+    prebuilds =
+      libexec/"lib/node_modules/@deepseek-ai/dsh/node_modules/node-pty/prebuilds"
+
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    target = "#{os}-#{arch}"
+
+    prebuilds.each_child do |dir|
+      rm_r dir unless dir.basename.to_s == target
+    end
+
     bin.install_symlink libexec.glob("bin/*")
   end
 
